@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Charcito
 {
-    class EnemigoHorizontal:Enemigo
+    class EnemigoVertical:Enemigo
     {
-        public EnemigoHorizontal()
+        public EnemigoVertical()
         {
             SetX(0);
             SetY(0);
@@ -16,7 +16,7 @@ namespace Charcito
             SetE('D');
             SetCollide(false);
         }
-        public EnemigoHorizontal(int x, int y, int timer, char e)
+        public EnemigoVertical(int x, int y, int timer, char e)
         {
             SetX(x);
             SetY(y);
@@ -26,17 +26,17 @@ namespace Charcito
         }
         public override void MovimientoEnemigo()
         {
-            if (GetTimer() < 20 && GetX() < 79)
+            if (GetTimer() < 20 && GetY() < 23)
             {
-                SetX(GetX() + 1);
+                SetY(GetY() + 1);
             }
-            else if (GetTimer() < 40 && GetX() > 0)
+            else if (GetTimer() < 40 && GetY() > 0)
             {
-                SetX(GetX() - 1);
+                SetY(GetY() - 1);
             }
             else
             {
-                SetX(GetX());
+                SetY(GetY());
             }
             if (GetTimer() < 40)
             {

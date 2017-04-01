@@ -21,21 +21,18 @@ namespace Charcito
             _e = 'D';
             _collide = false;
         }
-        public Enemigo(int x, int y, int timer, char e)
-        {
-            _x = x;
-            _y = y;
-            _e = e;
-            _timer = timer;
-            _collide = false;
-        }
-        public abstract void EnemyMovement();
+        public abstract void MovimientoEnemigo();
         public void Crashing(Personaje personajito)
         {
             if (personajito.GetX() == _x && personajito.GetY() == _y)
             {
                 _collide = true;
             }
+        }
+        public void DibujarEnemigos()
+        {
+            Console.SetCursorPosition(_x, _y);
+            Console.Write(_e);
         }
         public void SetX(int x)
         {
