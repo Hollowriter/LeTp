@@ -46,6 +46,8 @@
     <Compile Include="Enemigo.cs" />
     <Compile Include="EnemigoHorizontal.cs" />
     <Compile Include="EnemigoVertical.cs" />
+    <Compile Include="Jueguito.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Obstaculo.cs" />
     <Compile Include="Personaje.cs" />
     <Compile Include="Program.cs" />
