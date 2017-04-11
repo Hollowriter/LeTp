@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Charcito
@@ -14,6 +11,7 @@ namespace Charcito
         Enemigo[] horizontales = new EnemigoHorizontal[5];
         Enemigo[] verticales = new EnemigoVertical[3];
         Obstaculo[] obstaculos = new Obstaculo[6];
+        Dinero[] plata = new Dinero[6];
         public void Jugar()
         {
             ConsoleKeyInfo llave;
@@ -37,9 +35,15 @@ namespace Charcito
                     obstaculos[w] = new Obstaculo(dom.Next(0, 79), dom.Next(0, 23), 'x');
                     obstaculos[w].Dibujito();
                 }
+                for (int m = 0; m < plata.Length; m++)
+                {
+                    plata[m] = new Dinero(dom.Next(0, 79), dom.Next(0, 23), 0, '$');
+                    plata[m].DibujarDinero();
+                }
             }
             while (perdiste == false)
             {
+                // Console.WriteLine("Puntos: " + );
                 if (Console.KeyAvailable)
                 {
                     llave = Console.ReadKey();
