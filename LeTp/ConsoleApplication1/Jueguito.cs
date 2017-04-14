@@ -43,7 +43,6 @@ namespace Charcito
             }
             while (perdiste == false)
             {
-                // Console.WriteLine("Puntos: " + );
                 if (Console.KeyAvailable)
                 {
                     llave = Console.ReadKey();
@@ -74,6 +73,14 @@ namespace Charcito
                         perdiste = verticales[v].GetCollide();
                     }
                 }
+                for (int d = 0; d < plata.Length; d++)
+                {
+                    plata[d].Agarrado(pepito);
+                    if (!(pepito.GetX() == plata[d].GetX() && pepito.GetY() == plata[d].GetY()))
+                    {
+                        plata[d].DibujarDinero();
+                    }
+                }
                 for (int w = 0; w < obstaculos.Length; w++)
                 {
                     obstaculos[w].Chocar(pepito);
@@ -89,6 +96,8 @@ namespace Charcito
                     Console.WriteLine("Perdiste :D");
                     System.Threading.Thread.Sleep(1000);
                 }
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine("Puntos: " + plata[0].GetPts());
                 System.Threading.Thread.Sleep(100);
             }
             Console.Clear();
