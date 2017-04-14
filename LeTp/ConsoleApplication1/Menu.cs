@@ -7,6 +7,9 @@ namespace Charcito
         private ConsoleKeyInfo inputting;
         public bool ThyMenu()
         {
+            Ejecucion mensajeado = new Ejecucion();
+            mensajeado.InsertandoMensaje();
+            Console.WriteLine(mensajeado.LeyendoMensaje());
             Console.WriteLine("***************************Charcito*****************************");
             Console.WriteLine("Presione J para jugar");
             Console.WriteLine("Presione S para salir");

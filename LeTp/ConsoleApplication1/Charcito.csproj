@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dinero.cs" />
+    <Compile Include="Ejecucion.cs" />
     <Compile Include="Enemigo.cs" />
     <Compile Include="EnemigoHorizontal.cs" />
     <Compile Include="EnemigoVertical.cs" />
