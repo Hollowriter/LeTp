@@ -23,6 +23,7 @@ namespace Charcito
 			if (!File.Exists("HIGHSCOREY.bin"))
 			{
 				FileStream puntajeAlto = new FileStream("HIGHSCOREY.bin", FileMode.Create);
+                puntajeAlto.Close();
 			}
 			BinaryWriter writing = new BinaryWriter(File.Open("HIGHSCOREY.bin", FileMode.Open));
 			if (!(puntos > _high))
@@ -30,6 +31,7 @@ namespace Charcito
 				writing.Write(_name);
 				writing.Write(" ");
 				writing.Write(_high);
+                writing.Close();
 			}
 			if (puntos > _high)
 			{
@@ -40,15 +42,17 @@ namespace Charcito
 				writing.Write(_name);
 				writing.Write(" ");
 				writing.Write(_high);
+                writing.Close();
 			}
 		}
 		public void LeeElPuntaje()
 		{
-			if(File.Exists("HIGHSCOREY.bin"))
-			{
-				BinaryReader reading = new BinaryReader(File.Open("HIGHSCOREY.bin", FileMode.Open));
-				Console.Write("HIGHSCORE: " + reading.ReadString() + " " + reading.ReadInt32());
-			}
+            if (File.Exists("HIGHSCOREY.bin"))
+            {
+                BinaryReader reading = new BinaryReader(File.Open("HIGHSCOREY.bin", FileMode.Open));
+                Console.Write("HIGHSCORE: " + reading.ReadString() + " " + reading.ReadInt32());
+                reading.Close();
+            }
 		}
 	}
 }

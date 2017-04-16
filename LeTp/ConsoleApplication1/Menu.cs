@@ -15,7 +15,7 @@ namespace Charcito
             Console.WriteLine("Presione J para jugar");
             Console.WriteLine("Presione S para salir");
 			Console.WriteLine(" ");
-			Console.WriteLine(points.LeeElPuntaje());
+            points.LeeElPuntaje();
             while (true)
             {
                 inputting = Console.ReadKey();
