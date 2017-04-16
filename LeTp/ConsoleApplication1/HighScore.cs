@@ -47,7 +47,7 @@ namespace Charcito
 			if(File.Exists("HIGHSCOREY.bin"))
 			{
 				BinaryReader reading = new BinaryReader(File.Open("HIGHSCOREY.bin", FileMode.Open));
-				Console.Write(reading.ReadString() + " " + reading.ReadInt32());
+				Console.Write("HIGHSCORE: " + reading.ReadString() + " " + reading.ReadInt32());
 			}
 		}
 	}

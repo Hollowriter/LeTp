@@ -8,6 +8,7 @@ namespace Charcito
         bool perdiste = false;
         Personaje pepito = new Personaje(5, 5, 'p');
         Menu superUI = new Menu();
+		HighScore alto = new HighScore();
         Enemigo[] horizontales = new EnemigoHorizontal[5];
         Enemigo[] verticales = new EnemigoVertical[3];
         Obstaculo[] obstaculos = new Obstaculo[6];
@@ -95,6 +96,7 @@ namespace Charcito
                     Console.Clear();
                     Console.WriteLine("Perdiste :D");
                     System.Threading.Thread.Sleep(1000);
+					alto.EscribiElPuntaje(plata[0].GetPts());
                 }
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Puntos: " + plata[0].GetPts());

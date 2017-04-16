@@ -8,11 +8,14 @@ namespace Charcito
         public bool ThyMenu()
         {
             Ejecucion mensajeado = new Ejecucion();
+			HighScore points = new HighScore();
             mensajeado.InsertandoMensaje();
             Console.WriteLine(mensajeado.LeyendoMensaje());
             Console.WriteLine("***************************Charcito*****************************");
             Console.WriteLine("Presione J para jugar");
             Console.WriteLine("Presione S para salir");
+			Console.WriteLine(" ");
+			Console.WriteLine(points.LeeElPuntaje());
             while (true)
             {
                 inputting = Console.ReadKey();
