@@ -22,7 +22,7 @@ namespace Charcito
         {
             if (personajito.GetX() == _x && personajito.GetY() == _y)
             {
-                _collide = true;
+                personajito.RestarHp(1);
             }
         }
         public void DibujarEnemigos()

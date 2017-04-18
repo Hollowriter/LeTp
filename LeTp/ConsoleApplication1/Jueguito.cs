@@ -47,7 +47,7 @@ namespace Charcito
             }
             posicionamientoDelJugador.Close();
             // no funcionaba desde clases asi que la inicializacion la hice aca
-            pepito = new Personaje(laPosicion.x, laPosicion.y, 'p');
+            pepito = new Personaje(laPosicion.x, laPosicion.y, 'p',10);
             // serializadorFeo.Posicionado(pepito, laPosicion);
             pepito.Dibujar();
             if (perdiste == false && saliste == false)
@@ -91,9 +91,9 @@ namespace Charcito
                     horizontales[h].DibujarEnemigos();
                     horizontales[h].MovimientoEnemigo();
                     horizontales[h].Crashing(pepito);
-                    if (perdiste == false && saliste == false)
+                    if (perdiste == false && saliste == false && pepito.GetHp() < 0)
                     {
-                        perdiste = horizontales[h].GetCollide();
+                        perdiste = true;
                     }
                 }
                 for (int v = 0; v < verticales.Length; v++)
@@ -101,9 +101,9 @@ namespace Charcito
                     verticales[v].DibujarEnemigos();
                     verticales[v].MovimientoEnemigo();
                     verticales[v].Crashing(pepito);
-                    if (perdiste == false && saliste == false)
+                    if (perdiste == false && saliste == false && pepito.GetHp() < 0)
                     {
-                        perdiste = verticales[v].GetCollide();
+                        perdiste = true;
                     }
                 }
                 for (int d = 0; d < plata.Length; d++)
@@ -139,6 +139,7 @@ namespace Charcito
                 }
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Puntos: " + plata[0].GetPts());
+                Console.WriteLine("Vidas: " + pepito.GetHp());
                 System.Threading.Thread.Sleep(100);
             }
             Console.Clear();

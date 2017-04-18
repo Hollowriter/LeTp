@@ -7,17 +7,28 @@ namespace Charcito
         private int _x;
         private int _y;
         private char _p;
+        private int _hp;
+
         public Personaje()
         {
             _x = 0;
             _y = 0;
             _p = 'x';
+            _hp = 5;
         }
         public Personaje(int x, int y, char p)
         {
             _x = x;
             _y = y;
             _p = p;
+            _hp = 5;
+        }
+        public Personaje(int x, int y, char p,int hp)
+        {
+            _x = x;
+            _y = y;
+            _p = p;
+            _hp = hp;
         }
         public void Movimiento(ConsoleKeyInfo keyay)
         {
@@ -91,6 +102,14 @@ namespace Charcito
         public char GetP()
         {
             return _p;
+        }
+        public int GetHp()
+        {
+            return _hp;
+        }
+        public void RestarHp(int num)
+        {
+            _hp -= num;
         }
     }
 }

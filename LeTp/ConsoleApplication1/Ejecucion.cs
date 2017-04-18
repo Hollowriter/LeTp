@@ -11,6 +11,7 @@ namespace Charcito
         {
             mensajito = "a";
         }
+
         public void InsertandoMensaje()
         {
             if (!(File.Exists("ElMensaje.txt")))
