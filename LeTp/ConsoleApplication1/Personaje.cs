@@ -51,6 +51,17 @@ namespace Charcito
                     return;
             }
         }
+        public bool Salir(ConsoleKeyInfo hail)
+        {
+            if (hail.Key == ConsoleKey.Escape)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void Dibujar()
         {
             Console.Clear();

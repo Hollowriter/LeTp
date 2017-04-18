@@ -48,6 +48,7 @@
     <Compile Include="Enemigo.cs" />
     <Compile Include="EnemigoHorizontal.cs" />
     <Compile Include="EnemigoVertical.cs" />
+    <Compile Include="EstructuraDePosicion.cs" />
     <Compile Include="HighScore.cs" />
     <Compile Include="Jueguito.cs" />
     <Compile Include="Menu.cs" />

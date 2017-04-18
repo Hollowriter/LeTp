@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Charcito
 {
+    [Serializable]
+    struct Position
+    {
+        public int x;
+        public int y;
+    }
     class Jueguito
     {
         bool perdiste = false;
-        Personaje pepito = new Personaje(5, 5, 'p');
+        bool saliste = false;
+        EstructuraDePosicion serializadorFeo = new EstructuraDePosicion();
+        BinaryFormatter elFormatero = new BinaryFormatter();
+        FileStream posicionamientoDelJugador;
+        Personaje pepito;
+        Position laPosicion;
         Menu superUI = new Menu();
 		HighScore alto = new HighScore();
         Enemigo[] horizontales = new EnemigoHorizontal[5];
@@ -18,8 +31,26 @@ namespace Charcito
             ConsoleKeyInfo llave;
             Random dom = new Random();
             perdiste = superUI.ThyMenu();
+            // no funcionaba desde clases asi que la inicializacion la hice aca
+            if (!File.Exists("Posicionamiento.txt"))
+            {
+                posicionamientoDelJugador = File.Create("Posicionamiento.txt");
+                laPosicion.x = 5;
+                laPosicion.y = 5;
+            }
+            else
+            {
+                using (posicionamientoDelJugador = File.OpenRead("Posicionamiento.txt"))
+                {
+                    laPosicion = (Position)elFormatero.Deserialize(posicionamientoDelJugador);
+                }
+            }
+            posicionamientoDelJugador.Close();
+            // no funcionaba desde clases asi que la inicializacion la hice aca
+            pepito = new Personaje(laPosicion.x, laPosicion.y, 'p');
+            // serializadorFeo.Posicionado(pepito, laPosicion);
             pepito.Dibujar();
-            if (perdiste == false)
+            if (perdiste == false && saliste == false)
             {
                 for (int h = 0; h < horizontales.Length; h++)
                 {
@@ -42,12 +73,13 @@ namespace Charcito
                     plata[m].DibujarDinero();
                 }
             }
-            while (perdiste == false)
+            while (perdiste == false && saliste == false)
             {
                 if (Console.KeyAvailable)
                 {
                     llave = Console.ReadKey();
                     pepito.Movimiento(llave);
+                    saliste = pepito.Salir(llave);
                 }
                 while (Console.KeyAvailable)
                 {
@@ -59,7 +91,7 @@ namespace Charcito
                     horizontales[h].DibujarEnemigos();
                     horizontales[h].MovimientoEnemigo();
                     horizontales[h].Crashing(pepito);
-                    if (perdiste == false)
+                    if (perdiste == false && saliste == false)
                     {
                         perdiste = horizontales[h].GetCollide();
                     }
@@ -69,7 +101,7 @@ namespace Charcito
                     verticales[v].DibujarEnemigos();
                     verticales[v].MovimientoEnemigo();
                     verticales[v].Crashing(pepito);
-                    if (perdiste == false)
+                    if (perdiste == false && saliste == false)
                     {
                         perdiste = verticales[v].GetCollide();
                     }
@@ -86,7 +118,7 @@ namespace Charcito
                 {
                     obstaculos[w].Chocar(pepito);
                     obstaculos[w].Dibujito();
-                    if (perdiste == false)
+                    if (perdiste == false && saliste)
                     {
                         perdiste = obstaculos[w].GetColliding();
                     }
@@ -98,11 +130,19 @@ namespace Charcito
                     System.Threading.Thread.Sleep(1000);
 					alto.EscribiElPuntaje(plata[0].GetPts());
                 }
+                if (saliste == true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("¿Te vas tan pronto?");
+                    Console.WriteLine("Para otra sera, jeje x3");
+                    System.Threading.Thread.Sleep(1000);
+                }
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Puntos: " + plata[0].GetPts());
                 System.Threading.Thread.Sleep(100);
             }
             Console.Clear();
+            serializadorFeo.Guardado(pepito, laPosicion);
             Console.WriteLine("nos vemos c;");
             Console.ReadKey();
         }
