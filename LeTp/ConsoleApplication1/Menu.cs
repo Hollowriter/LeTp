@@ -7,6 +7,8 @@ namespace Charcito
         private ConsoleKeyInfo inputting;
         public bool ThyMenu()
         {
+            Climatologo clima = new Climatologo();
+            clima.LlamarAlClima();
             Ejecucion mensajeado = new Ejecucion();
 			HighScore points = new HighScore();
             mensajeado.InsertandoMensaje();
