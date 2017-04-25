@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charcito", "ConsoleApplication1\Charcito.csproj", "{BB6CEE62-CF79-4152-AF3C-49EF7EB4AFBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LosLinks", "LosLinks\LosLinks.csproj", "{210F10CD-D2FC-422B-ADD8-B449715CEEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConGoogle", "ConGoogle\ConGoogle.csproj", "{CDB8B02A-1794-4F0C-872F-F08F001C050F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BB6CEE62-CF79-4152-AF3C-49EF7EB4AFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB6CEE62-CF79-4152-AF3C-49EF7EB4AFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB6CEE62-CF79-4152-AF3C-49EF7EB4AFBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210F10CD-D2FC-422B-ADD8-B449715CEEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210F10CD-D2FC-422B-ADD8-B449715CEEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210F10CD-D2FC-422B-ADD8-B449715CEEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210F10CD-D2FC-422B-ADD8-B449715CEEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB8B02A-1794-4F0C-872F-F08F001C050F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB8B02A-1794-4F0C-872F-F08F001C050F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB8B02A-1794-4F0C-872F-F08F001C050F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB8B02A-1794-4F0C-872F-F08F001C050F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
