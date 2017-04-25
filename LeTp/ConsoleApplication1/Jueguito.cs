@@ -26,11 +26,13 @@ namespace Charcito
         Enemigo[] verticales = new EnemigoVertical[3];
         Obstaculo[] obstaculos = new Obstaculo[6];
         Dinero[] plata = new Dinero[6];
+        Climatologo clima = new Climatologo();
         public void Jugar()
         {
             ConsoleKeyInfo llave;
             Random dom = new Random();
             perdiste = superUI.ThyMenu();
+            clima.LlamarAlClima();
             // no funcionaba desde clases asi que la inicializacion la hice aca
             if (!File.Exists("Posicionamiento.txt"))
             {
