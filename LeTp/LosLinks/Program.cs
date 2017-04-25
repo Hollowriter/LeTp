@@ -25,7 +25,7 @@ namespace LosLinks
 
                 JObject data = JObject.Parse(sr.ReadToEnd());
 
-                titulo = (string)data["Year"];
+                titulo = (string)data["Year"]; // el ejemplo es este pero con año
             }
             catch
             {

@@ -23,11 +23,11 @@ namespace ConGoogle
 
             JObject data = JObject.Parse(sr.ReadToEnd());
 
-            titulo = (string)data["results"];
+            titulo = (string)data["results"][0]["address_components"][3]["long_name"];
             /*Como results es un array, no se puede convertir a string.
              Y si le cambio la extencion por Array, no lo puede convertir a bytearray*/
            
-            Console.WriteLine(titulo);
+           Console.WriteLine(titulo);
 
            // Console.WriteLine(sr.ReadToEnd());
 
